@@ -1,0 +1,238 @@
+{
+    "info": {
+        "name": "TodoCamisetas API",
+        "description": "Colección de endpoints para Camisetas, Clientes y Tallas.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Tallas",
+            "item": [
+                {
+                    "name": "Listar Tallas",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/tallas",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "tallas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear Talla",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\": \"XXL\"}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/tallas",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "tallas"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Clientes",
+            "item": [
+                {
+                    "name": "Listar Clientes",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clientes",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clientes"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear Cliente",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre_comercial\": \"Test B2B\", \"rut_id_comercial\": \"12345678-9\", \"direccion\": \"Santiago\", \"categoria\": \"Preferencial\", \"contacto_nombre\": \"Juan Perez\", \"contacto_correo\": \"juan@test.com\", \"porcentaje_oferta\": 15.5}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/clientes",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clientes"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Camisetas del Cliente",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clientes/1/camisetas",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clientes",
+                                "1",
+                                "camisetas"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Camisetas",
+            "item": [
+                {
+                    "name": "Listar Camisetas (Sin Cliente)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/camisetas",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "camisetas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Camisetas (Con Cliente Precio Dinámico)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/camisetas?cliente_id=1",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "camisetas"
+                            ],
+                            "query": [
+                                {
+                                    "key": "cliente_id",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear Camiseta",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"titulo\": \"Camiseta Local\", \"club\": \"Colo Colo\", \"pais\": \"Chile\", \"tipo\": \"Local\", \"color\": \"Blanco\", \"precio\": 45000, \"cantidad\": 100, \"tallas\": [1, 2], \"sku\": \"CC2025L\"}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/camisetas",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "camisetas"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8080"
+        }
+    ]
+}
