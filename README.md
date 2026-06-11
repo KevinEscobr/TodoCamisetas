@@ -1,4 +1,4 @@
-# 👕 TodoCamisetas API
+# TodoCamisetas API
 
 [![Laravel Version](https://img.shields.io/badge/Laravel-11.x%20%2F%2013.x-red?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![PHP Version](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php)](https://www.php.net)
@@ -10,7 +10,7 @@ API RESTful empresarial desarrollada en Laravel para la **gestión de inventario
 
 ---
 
-## 📐 Arquitectura de Datos (Modelo Entidad-Relación)
+## Arquitectura de Datos (Modelo Entidad-Relación)
 
 A continuación se muestra el esquema de base de datos que soporta la relación de muchos a muchos entre camisetas, tallas y clientes B2B:
 
@@ -72,7 +72,7 @@ erDiagram
 
 ---
 
-## 🎯 Diagrama de Casos de Uso
+## Diagrama de Casos de Uso
 
 El flujo de interacción del sistema se divide en operaciones de administración de catálogo y consultas de clientes B2B:
 
@@ -118,7 +118,7 @@ graph TD
 
 ---
 
-## 💼 Reglas de Negocio: Cálculo de Precios B2B
+## Reglas de Negocio: Cálculo de Precios B2B
 
 El núcleo del negocio de TodoCamisetas radica en ofrecer precios dinámicos según el tipo de cliente B2B que consulte:
 
@@ -132,13 +132,13 @@ El núcleo del negocio de TodoCamisetas radica en ofrecer precios dinámicos seg
 
 ---
 
-## 🛠️ Requisitos Previos
+## Requisitos Previos
 
 * [Docker](https://www.docker.com/) y [Docker Compose](https://docs.docker.com/compose/) instalados y ejecutándose en tu equipo.
 
 ---
 
-## 🐋 Estructura de Contenedores
+## Estructura de Contenedores
 
 La infraestructura está automatizada mediante Docker y se compone de tres servicios:
 
@@ -148,7 +148,7 @@ La infraestructura está automatizada mediante Docker y se compone de tres servi
 
 ---
 
-## 🚀 Instalación y Configuración Paso a Paso
+## Instalación y Configuración Paso a Paso
 
 Sigue estas instrucciones para desplegar el entorno de desarrollo local:
 
@@ -203,7 +203,7 @@ docker compose exec app php artisan l5-swagger:generate
 
 ---
 
-## 📖 Uso y Consumo de la API
+## Uso y Consumo de la API
 
 Una vez completada la instalación, la API estará disponible en `http://localhost:8080`.
 
@@ -213,9 +213,9 @@ Una vez completada la instalación, la API estará disponible en `http://localho
 
 ---
 
-## 🔌 Referencia de Endpoints
+## Referencia de Endpoints
 
-### 👕 Módulo de Camisetas
+### Módulo de Camisetas
 
 | Método | Endpoint | Descripción | Parámetros de Consulta (Query) | Payload de Entrada (JSON) |
 | :--- | :--- | :--- | :--- | :--- |
@@ -225,7 +225,7 @@ Una vez completada la instalación, la API estará disponible en `http://localho
 | **PUT** | `/api/camisetas/{id}` | Actualizar datos de una camiseta. | - | Campos a actualizar (igual a POST) |
 | **DELETE** | `/api/camisetas/{id}` | Eliminar una camiseta. | - | - |
 
-### 👥 Módulo de Clientes B2B
+### Módulo de Clientes B2B
 
 | Método | Endpoint | Descripción | Payload de Entrada (JSON) |
 | :--- | :--- | :--- | :--- |
@@ -236,7 +236,7 @@ Una vez completada la instalación, la API estará disponible en `http://localho
 | **DELETE** | `/api/clientes/{id}` | Eliminar un cliente *(Falla si tiene camisetas asociadas)*. | - |
 | **GET** | `/api/clientes/{id}/camisetas` | Listar catálogo asignado a un cliente específico. | - |
 
-### 📏 Módulo de Tallas
+### Módulo de Tallas
 
 | Método | Endpoint | Descripción | Payload de Entrada (JSON) |
 | :--- | :--- | :--- | :--- |
@@ -248,7 +248,7 @@ Una vez completada la instalación, la API estará disponible en `http://localho
 
 ---
 
-## 🧪 Pruebas Unitarias y de Integración
+## Pruebas Unitarias y de Integración
 
 El proyecto incluye tests automáticos para asegurar que los controladores, las reglas de negocio (cálculo de precios dinámicos) y las restricciones de base de datos funcionen de manera correcta.
 
@@ -259,7 +259,7 @@ docker compose exec app php artisan test
 
 ---
 
-## ⏹️ Detener el Entorno
+## Detener el Entorno
 
 Para detener la ejecución de los contenedores Docker sin borrar los volúmenes de datos persistentes:
 ```bash
