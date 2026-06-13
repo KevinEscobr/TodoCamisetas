@@ -5,8 +5,11 @@
 [![Docker](https://img.shields.io/badge/Docker-Enabled-blue?style=for-the-badge&logo=docker)](https://www.docker.com)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=for-the-badge&logo=mysql)](https://www.mysql.com)
 [![Nginx](https://img.shields.io/badge/Nginx-1.27-green?style=for-the-badge&logo=nginx)](https://nginx.org)
+[![Video Demo](https://img.shields.io/badge/Video-Demo-red?style=for-the-badge&logo=youtube)](https://youtu.be/Cmmeg1XdBWM)
 
 API RESTful empresarial desarrollada en Laravel para la **gestión de inventario y ventas B2B** de TodoCamisetas. Esta solución permite la administración centralizada de camisetas, clientes B2B (categorizados para la asignación dinámica de precios) y tallas, garantizando cotizaciones y consultas personalizadas en tiempo real.
+
+🎥 **Ver demostración en video:** [Video en YouTube](https://youtu.be/Cmmeg1XdBWM)
 
 ---
 

@@ -26,13 +26,24 @@
                         "description": "ID del cliente para calcular el precio dinámico",
                         "required": false,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Lista de camisetas obtenida correctamente"
+                        "description": "Lista de camisetas obtenida correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Camiseta"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -49,38 +60,51 @@
                             "schema": {
                                 "properties": {
                                     "titulo": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Camiseta Local Colo-Colo 2026"
                                     },
                                     "club": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Colo-Colo"
                                     },
                                     "pais": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Chile"
                                     },
                                     "tipo": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Local"
                                     },
                                     "color": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Blanco/Negro"
                                     },
                                     "precio": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "example": 45000
                                     },
                                     "precio_oferta": {
                                         "type": "integer",
+                                        "example": 39990,
                                         "nullable": true
                                     },
                                     "cantidad": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "example": 100
                                     },
                                     "tallas": {
                                         "type": "array",
                                         "items": {
                                             "type": "integer"
-                                        }
+                                        },
+                                        "example": [
+                                            1,
+                                            2
+                                        ]
                                     },
                                     "sku": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "CC-LOC-2026"
                                     }
                                 },
                                 "type": "object"
@@ -90,7 +114,14 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Camiseta creada"
+                        "description": "Camiseta creada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Camiseta"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Error de validación"
@@ -111,7 +142,8 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     },
                     {
@@ -119,13 +151,21 @@
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Camiseta encontrada"
+                        "description": "Camiseta encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Camiseta"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Camiseta no encontrada"
@@ -144,7 +184,8 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
@@ -155,10 +196,12 @@
                             "schema": {
                                 "properties": {
                                     "precio": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "example": 48000
                                     },
                                     "cantidad": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "example": 85
                                     }
                                 },
                                 "type": "object"
@@ -168,7 +211,14 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Camiseta actualizada"
+                        "description": "Camiseta actualizada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Camiseta"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "No encontrada"
@@ -187,13 +237,27 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Camiseta eliminada"
+                        "description": "Camiseta eliminada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Camiseta eliminada correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "No encontrada"
@@ -210,7 +274,17 @@
                 "operationId": "8a76afc7d13ddb67fc4690f4d942c67d",
                 "responses": {
                     "200": {
-                        "description": "Lista de clientes"
+                        "description": "Lista de clientes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cliente"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -227,27 +301,39 @@
                             "schema": {
                                 "properties": {
                                     "nombre_comercial": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Distribuidora Deportiva B2B Ltda."
                                     },
                                     "rut_id_comercial": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "76.543.210-K"
                                     },
                                     "direccion": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Av. Libertador O'Higgins 456, Santiago"
                                     },
                                     "categoria": {
                                         "description": "Regular o Preferencial",
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Preferencial",
+                                        "enum": [
+                                            "Regular",
+                                            "Preferencial"
+                                        ]
                                     },
                                     "contacto_nombre": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Carlos Mendoza"
                                     },
                                     "contacto_correo": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "carlos.mendoza@depb2b.cl"
                                     },
                                     "porcentaje_oferta": {
                                         "type": "number",
-                                        "format": "float"
+                                        "format": "float",
+                                        "example": 12.5
                                     }
                                 },
                                 "type": "object"
@@ -257,7 +343,14 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Cliente creado"
+                        "description": "Cliente creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Error de validación"
@@ -278,13 +371,21 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Cliente encontrado"
+                        "description": "Cliente encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "No encontrado"
@@ -303,7 +404,8 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
@@ -314,7 +416,17 @@
                             "schema": {
                                 "properties": {
                                     "categoria": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "Preferencial",
+                                        "enum": [
+                                            "Regular",
+                                            "Preferencial"
+                                        ]
+                                    },
+                                    "porcentaje_oferta": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 18
                                     }
                                 },
                                 "type": "object"
@@ -324,7 +436,14 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Cliente actualizado"
+                        "description": "Cliente actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "No encontrado"
@@ -343,16 +462,43 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Cliente eliminado"
+                        "description": "Cliente eliminado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Cliente eliminado correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "No se puede eliminar porque tiene camisetas asociadas"
+                        "description": "No se puede eliminar porque tiene camisetas asociadas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No se puede eliminar el cliente porque tiene camisetas asociadas"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "No encontrado"
@@ -373,13 +519,24 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Camisetas listadas correctamente"
+                        "description": "Camisetas listadas correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Camiseta"
+                                    }
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Cliente no encontrado"
@@ -396,7 +553,17 @@
                 "operationId": "e10f34c3b98b90084e352e28b825b6e8",
                 "responses": {
                     "200": {
-                        "description": "Operación exitosa"
+                        "description": "Operación exitosa",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Talla"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -424,7 +591,14 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Talla creada"
+                        "description": "Talla creada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Talla"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -442,13 +616,21 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Talla encontrada"
+                        "description": "Talla encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Talla"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -464,7 +646,8 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
@@ -475,7 +658,8 @@
                             "schema": {
                                 "properties": {
                                     "nombre": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "XXXL"
                                     }
                                 },
                                 "type": "object"
@@ -485,7 +669,14 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Talla actualizada"
+                        "description": "Talla actualizada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Talla"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -501,13 +692,27 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Talla eliminada"
+                        "description": "Talla eliminada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Talla eliminada correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
